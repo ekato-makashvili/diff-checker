@@ -1,0 +1,56 @@
+.color {
+  stroke: white; /* change on hover */
+}
+
+li.transition-colors:hover .color {
+  stroke: #132450; /* change on hover */
+}
+li.transition-colors.active .color {
+  stroke: #132450; /* change on hover */
+}
+li.transition-colors.active span {
+  color: #132450; /* change on hover */
+}
+.menu-item {
+    position: relative;
+}
+
+.menu-item.active {
+    background-color: white;
+    border-radius: 24px 0 0 24px;
+}
+
+.menu-item.active::before,
+.menu-item.active::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: white;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg width='15' height='10' viewBox='0 0 15 10' xmlns='http://www.w3.org/2000/svg'><path d='M14.9952 10C15.3036 0.0330143 0.641017 0 0.0666504 0H16.0667L14.9952 10Z' fill='black'/></svg>") no-repeat center / contain;
+  mask: url("data:image/svg+xml;utf8,<svg width='15' height='10' viewBox='0 0 15 10' xmlns='http://www.w3.org/2000/svg'><path d='M14.9952 10C15.3036 0.0330143 0.641017 0 0.0666504 0H16.0667L14.9952 10Z' fill='black'/></svg>") no-repeat center / contain;
+}
+
+.menu-item.active::before {
+    top: -24px;
+    /* clip-path: polygon(
+        0% 100%, 
+        40% 60%, 
+        70% 30%, 
+        100% 0%, 
+        100% 100%
+    ); */
+        transform: scaleY(-1);
+}
+
+.menu-item.active::after {
+    bottom: -24px;
+    /* clip-path: polygon(
+        0% 0%, 
+        40% 40%, 
+        70% 70%, 
+        100% 100%, 
+        100% 0%
+    ); */
+}

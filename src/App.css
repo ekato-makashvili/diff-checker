@@ -87,6 +87,8 @@ li {
 @media (min-width: 320px) and (max-width: 767px) {
   .rotate-xs {
     transform: rotate(90deg);
+    margin-top: 10px;
+    margin-bottom: -20px;
   }
 } /* App.css or your custom CSS file */
 
@@ -116,14 +118,23 @@ li {
   }
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+.line {
+margin-top: 1rem;
+}
+}
 @media (min-width: 320px) and (max-width: 767px) {
 .line {
-  margin-top: 5rem;
+margin-top: 6rem;
 }
 }
-
 @media (min-width: 320px) and (max-width: 767px) {
 .buttons {
   width:100%;
   display: block;
+}}
+
+@media (min-width: 320px) and (max-width: 767px) {
+.font-size {
+  font-size: 14px;
 }}

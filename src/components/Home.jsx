@@ -37,7 +37,7 @@ const TextDiffApp = () => {
   };
 
   return (
-    <div className="main-container mx-6 my-6 text-sm relative h-full">
+    <div className="main-container mx-6 my-6 text-sm relative h-full flex flex-col">
       <div className="h-[58px]">
         <div className="flex navbar h-[42px] justify-between buttons">
           <div className="flex navbar items-center text-[#383A48] buttons">
@@ -68,25 +68,25 @@ const TextDiffApp = () => {
               <path
                 d="M12 8V16"
                 stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M16 12H8"
                 stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M12 21V21C7.029 21 3 16.971 3 12V12C3 7.029 7.029 3 12 3V3C16.971 3 21 7.029 21 12V12C21 16.971 16.971 21 12 21Z"
                 stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
             <div className="ml-2 text-white">ახლის გახსნა</div>
@@ -94,63 +94,63 @@ const TextDiffApp = () => {
         </div>
       </div>
       <hr className="border-neutral-200 line" />
-      <div
-        className="text-sm flex flex-col"
-      >
-        <div className="flex justify-between items-center flex-row flex-xs-col">
-          {/* Hide textareas while loading */}
+
+      <div className="text-sm flex flex-col flex-grow">
+        {/* ტექსტბოქსები */}
+        <div className="flex justify-between items-center flex-row flex-xs-col flex-grow">
           {!loading ? (
             <>
               <TextAreaBox
                 value={text1}
                 onChange={(e) => setText1(e.target.value)}
                 diff={diffData.oldResult}
-                hidden={diffData.oldResult.length > 0} // hide textarea when result exists
+                hidden={diffData.oldResult.length > 0}
               />
-              <div className="w-[52px]">
-              <svg
-                className="rotate-xs"
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5.33337 16L26.6667 16"
-                  stroke="#323232"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M10.6667 21.3346L5.33337 15.9999L10.6667 10.6653"
-                  stroke="#323232"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M21.3307 10.6653L26.6654 15.9999L21.3307 21.3346"
-                  stroke="#323232"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <div className="w-[52px] pr-0.3">
+                <svg
+                  className="rotate-xs"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.33337 16L26.6667 16"
+                    stroke="#323232"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M10.6667 21.3346L5.33337 15.9999L10.6667 10.6653"
+                    stroke="#323232"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M21.3307 10.6653L26.6654 15.9999L21.3307 21.3346"
+                    stroke="#323232"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </div>
               <TextAreaBox
                 value={text2}
                 onChange={(e) => setText2(e.target.value)}
                 diff={diffData.newResult}
-                hidden={diffData.newResult.length > 0} // hide textarea when result exists
+                hidden={diffData.newResult.length > 0}
               />
             </>
           ) : null}
         </div>
-        <div className="flex justify-center mt-8">
+
+        {/* ღილაკი ყოველთვის ქვემოთ */}
+        <div className="mt-8 flex justify-center">
           <CompareButton isActive={isActive} onClick={handleCompare} />
-          {/* Popup progress modal */}
           <ProgressModal visible={loading} progress={progress} />
         </div>
       </div>

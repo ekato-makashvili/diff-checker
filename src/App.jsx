@@ -6,7 +6,7 @@ import Header from "./components/Header";
 function App() {
   return (
     <div>
-      <Header />
+      <Header className="line"/>
       <hr className="border-neutral-200" />
       <div className="flex">
         <Sidebar />

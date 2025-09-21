@@ -12,45 +12,118 @@ li.transition-colors.active span {
   color: #132450; /* change on hover */
 }
 .menu-item {
-    position: relative;
+  position: relative;
 }
 
 .menu-item.active {
-    background-color: white;
-    border-radius: 24px 0 0 24px;
+  background-color: white;
+  border-radius: 24px 0 0 24px;
 }
 
 .menu-item.active::before,
 .menu-item.active::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    width: 30px;
-    height: 30px;
-    background: white;
-    -webkit-mask: url("data:image/svg+xml;utf8,<svg width='15' height='10' viewBox='0 0 15 10' xmlns='http://www.w3.org/2000/svg'><path d='M14.9952 10C15.3036 0.0330143 0.641017 0 0.0666504 0H16.0667L14.9952 10Z' fill='black'/></svg>") no-repeat center / contain;
-  mask: url("data:image/svg+xml;utf8,<svg width='15' height='10' viewBox='0 0 15 10' xmlns='http://www.w3.org/2000/svg'><path d='M14.9952 10C15.3036 0.0330143 0.641017 0 0.0666504 0H16.0667L14.9952 10Z' fill='black'/></svg>") no-repeat center / contain;
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background: white;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg width='15' height='10' viewBox='0 0 15 10' xmlns='http://www.w3.org/2000/svg'><path d='M14.9952 10C15.3036 0.0330143 0.641017 0 0.0666504 0H16.0667L14.9952 10Z' fill='black'/></svg>")
+    no-repeat center / contain;
+  mask: url("data:image/svg+xml;utf8,<svg width='15' height='10' viewBox='0 0 15 10' xmlns='http://www.w3.org/2000/svg'><path d='M14.9952 10C15.3036 0.0330143 0.641017 0 0.0666504 0H16.0667L14.9952 10Z' fill='black'/></svg>")
+    no-repeat center / contain;
 }
 
 .menu-item.active::before {
-    top: -24px;
-    /* clip-path: polygon(
-        0% 100%, 
-        40% 60%, 
-        70% 30%, 
-        100% 0%, 
-        100% 100%
-    ); */
-        transform: scaleY(-1);
+  top: -24px;
+
+  transform: scaleY(-1);
 }
 
 .menu-item.active::after {
-    bottom: -24px;
-    /* clip-path: polygon(
-        0% 0%, 
-        40% 40%, 
-        70% 70%, 
-        100% 100%, 
-        100% 0%
-    ); */
+  bottom: -24px;
 }
+li {
+  padding-top: 0.9rem; /* Tailwind py-2 = 0.5rem */
+  padding-bottom: 0.9rem;
+}
+
+/* 1024px - 1136px 652px */
+@media (min-width: 1024px){
+  .main-container {
+    width: 1440px;
+    height: 830px;
+  }
+}
+
+/* 768px - 712px 652px, hide sidebar */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-container {
+        width: 1136px;
+    height: 652px;
+  }
+}
+
+/* <320px - 288px 652px, vertical layout */
+@media (min-width: 320px) and (max-width: 767px) {
+  .main-container {
+    width: 712px;
+    height: 952px;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .text-container {
+    width: 288px;
+    height: 444px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .flex-xs-col {
+    @apply flex-col;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .rotate-xs {
+    transform: rotate(90deg);
+  }
+} /* App.css or your custom CSS file */
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .navbar {
+    flex-direction: column; /* stack items vertically */
+    align-items: center; /* center items horizontally */
+    gap: 8px; /* optional: spacing between items */
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 767px) {
+  .navbar-wrapper-md {
+    height: 72px; /* your requested height */
+  }
+}
+
+@media (max-width: 767px) and (min-width: 320px) {
+  .navbar-wrapper-mobile {
+    height: 56px; /* your requested height */
+  }
+}
+
+@media (max-width: 767px) and (min-width: 320px) {
+  .textbox-margin {
+    margin-top: 30px; /* your requested margin */
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+.line {
+  margin-top: 5rem;
+}
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+.buttons {
+  width:100%;
+  display: block;
+}}
